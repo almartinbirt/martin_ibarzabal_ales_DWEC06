@@ -1,0 +1,38 @@
+<div>
+  <app-menu></app-menu>
+  <h1>Productos</h1>
+</div>
+
+
+<div class="nuevo">
+<form #producto (ngSubmit)="onSubmit()">
+  <label>Nombre: <input type="text" name="nuevonombre" [(ngModel)]="nuevotitle"></label>
+
+  <label>Precio: <input type="text" name="nuevoprecio" [(ngModel)]="nuevoprize"></label>
+
+  <label>Cantidad: <input type="text" name="nuevacantidad" [(ngModel)]="nuevadescription"/></label>
+
+  <input type="submit"  value="Guardar" />
+</form>
+</div>
+
+
+@if(result){
+
+
+  @for (item of result; track result.id) {
+
+    <div class="{{delet === item.id ? 'delete' : 'ok'}}">
+
+      <p><strong>Nombre:</strong> {{ item.title }}</p>
+      <p><strong>Precio:</strong> {{ item.price }}</p>
+      <p><strong>Descripción:</strong> {{ item.description }}</p>
+      <img src="{{item.image}}" />
+      <p><a (click)="update(item.id)" style="cursor: pointer;"> Editar </a> - <a (click)="delete(item.id)" style="cursor: pointer;"> Borrar </a></p>
+
+    </div>
+    <hr>
+  }
+
+
+}

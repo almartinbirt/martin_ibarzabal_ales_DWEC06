@@ -1,0 +1,17 @@
+<div>
+  <app-menu></app-menu>
+  <h1>Productos</h1>
+</div>
+
+<div class="edit">
+  <form #editarproducto (ngSubmit)="onSubmit()">
+    <label><span>Nombre: </span><input type="text" name="title" [(ngModel)]="title"></label>
+
+    <label><span>Precio: </span><input type="text" name="prezio" [(ngModel)]="prize"></label>
+
+      <label><span>Cantidad: </span><input type="text" name="description" [(ngModel)]="description"/></label>
+
+  <input type="submit"  value="Guardar" />
+</form>
+
+</div>
